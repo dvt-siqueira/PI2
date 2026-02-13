@@ -1,0 +1,67 @@
+<html>
+
+<head>
+    <title>Pagina inicial</title>
+</head>
+
+<body>
+    <h1>Bem-vindo à página inicial!</h1>
+</body>
+<script>
+    var nome = "João";
+    console.log("Olá, " + nome + "! Bem-vindo à página inicial.");
+    nome = "Maria";
+    console.log("Olá, " + nome + "! Bem-vindo à página inicial.");
+    var nome = "Pedro";
+    console.log("Olá, " + nome + "! Bem-vindo à página inicial.");
+
+    if (true) {
+        var saudcao = "Olá";
+    }
+    console.log(saudcao);
+let idade = 30;
+console.log("A idade é: " + idade);
+idade=31;
+console.log("A idade é: " + idade);
+
+if(true){
+    let msg="Tudo bem?";
+    console.log(msg);
+}
+// a variavel msg não é acessível aqui, pois foi declarada com let dentro do bloco if
+//console.log(msg);
+const PI = 3.14;
+console.log("O valor de PI é: " + PI);
+//PI = 3.14159; // Isso causará um erro, pois PI é uma constante
+//const semValor; // Isso causará um erro, pois as constantes devem ser inicializadas no momento da declaração
+let primeiroNome = "João";
+let sobrenome = "Silva";
+let frase = `Olá, meu nome é ${primeiroNome} ${sobrenome}.`;
+console.log(frase);
+
+let estaLogado = true;
+let eMaiorDeIdade = false;
+
+let valor=10
+console.log("O valor é: " + valor); // Isso exibirá "O valor é: undefined"
+let estaLogado2 = null;
+console.log("O estado de login é: " + estaLogado2); // Isso exib
+
+const numeroMuitoGrande = 9007199254740991n;
+console.log(numeroMuitoGrande*2n);
+//objeto literal
+let pessoal={
+    nome:"Ana",
+    idade:25,
+    cidade:"São Paulo"
+};
+console.log(`Nome: ${pessoal.nome} - Idade: ${pessoal.idade} - Cidade: ${pessoal.cidade}`);
+//Arrays
+let frutas=["Maçã","Banana","Laranja"];
+console.log(frutas[2]); 
+console.log(typeof frutas);
+console.log(typeof 10);
+
+</script>
+
+</html>
