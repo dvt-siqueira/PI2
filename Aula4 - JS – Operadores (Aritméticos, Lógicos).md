@@ -191,12 +191,12 @@ Retorna `true` se **PELO MENOS UM** dos operandos for `true`. Retorna `false` ap
 
 ```javascript
 // Exemplo 7: OU Lógico (||)
-let estaChovendo = false;
+let estaChovendo = true;
 let temGuardaChuva = true;
-let estaSol = true;
+let estaSol = false;
 
 // Posso sair se NÃO estiver chovendo OU se eu tiver guarda-chuva
-let possoSair = !estaChovendo || temGuardaChuva;
+let possoSair = (estaChovendo || temGuardaChuva) && estaSol;
 console.log("Posso sair?", possoSair); // Saída: Posso sair? true
 
 // Preciso de óculos de sol se estiver Sol OU se estiver muito claro

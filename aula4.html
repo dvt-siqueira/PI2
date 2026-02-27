@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 4</title>
+</head>
+<body>
+    <h1>Aula 4 - JavaScript</h1>
+    <p>Bem-vindo à aula 4 de JavaScript! Nesta aula, vamos
+</body>
+<script>
+    // Exemplo de código JavaScript
+    console.log("Olá, mundo!");
+    let resto = 5 % 2;
+    let exponenciacao = 2 ** 7;
+    console.log("O resultado de 2 elevado a 7 é: " + exponenciacao);    
+    console.log("O resto da divisão de 5 por 2 é: " + resto);
+let contador =0;
+console.log("Contador: " + contador);
+contador--;
+console.log("Contador: " + contador);
+
+let a=5;
+let b=a++;
+console.log("Valor de a: " + a);
+console.log("Valor de b: " + b);
+
+let idadeAluno = 16;
+let idadeMinima = 18;
+console.log("O aluno pode entrar? " + (idadeAluno >= idadeMinima));
+console.log("é maior que 16 anos? " + (idadeAluno > 16));
+
+let numeroString="10";
+let numeroNumber=10;
+console.log(numeroNumber !== numeroString); 
+
+let possuiCNH = true;
+let temCarro = true;
+let ehMairdeIdade = false;
+let podeDirigir = possuiCNH && temCarro && ehMairdeIdade;
+console.log("Pode dirigir? " + podeDirigir);
+
+let estaChovendo = false;
+let temGuardaChuva = true;
+let estaSol = false;
+let podeSair = (!estaChovendo || temGuardaChuva) && estaSol;
+console.log("Pode sair? " + podeSair);
+
+let usuarioAtivo = false;
+let usuarioInativo = !usuarioAtivo;
+console.log("Usuário ativo: " + usuarioAtivo);
+console.log("Usuário inativo: " + usuarioInativo);
+
+let saldo = 50
+console.log("Saldo inicial: " + saldo);
+saldo -= 20;
+console.log("Saldo após depósito: " + saldo);
+
+
+
+    </script>
+</html>
