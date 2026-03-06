@@ -1,0 +1,74 @@
+<html>
+
+<head>
+    <title>Aula 5</title>
+    <script>
+        let idade = 20
+        if (idade >= 18) {
+            console.log("Voce é maior de idade")
+        } else {
+            console.log("Voce é menor de idade")
+        }
+
+        //novo codigo
+        let nota = 4.5;
+        if (nota >= 9) {
+            console.log("Excelente");
+        }
+        else if (nota >= 7) {
+            console.log("Bom");
+        } else if (nota >= 5) {
+            console.log("Regular");
+        }
+        else {
+            console.log("reprovado");
+        }
+        //proximo codigo
+        let usuarioLogado = true;
+        let isAdmin = true;
+        if (usuarioLogado) {
+            document.write("<h2>Bem Vindo ao sistema</h2>");
+            if (isAdmin) {
+                document.write("<p>Voce tem acesso a todas as funcionalidades</p>");
+            } else {
+                document.write("<p>Voce <b>não</b> tem acesso administrador</p>");
+            }
+        } else {
+            document.write("<h2>Faça login</h2>");
+        }
+
+        // if ternario
+        let =idade = 15;
+        let resultado = (idade >= 18) ? "Maior de idade" : "Menor de idade";
+        console.log(resultado);
+
+        //switch case
+        let diaSemana = 8;
+        switch (diaSemana) {
+            case 1:{
+                console.log("Domingo");
+                break;
+            }
+            case 2:{
+                console.log("Segunda-feira");
+                break;
+            }
+            case 3:{
+                console.log("Terça-feira");
+                break;
+            }
+            default:{
+                console.log("Dia inválido");
+            }
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <h1> Aula 5</h1>
+    <p> Codigo esta aparecendo na Console </p>
+</body>
+
+</html>
