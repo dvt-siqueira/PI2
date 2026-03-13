@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Operadores Aritméticos em JavaScript</h1>
+    <p>Veja o console para os resultados das operações aritméticas.</p>
+</body>
+<script>
+    // Exemplo 1: Operações Básicas
+let num1 = 10;
+let num2 = 5;
+
+let soma = num1 + num2;
+console.log("Soma:", soma); // Saída: Soma: 15
+
+let subtracao = num1 - num2;
+console.log("Subtração:", subtracao); // Saída: Subtração: 5
+
+let multiplicacao = num1 * num2;
+console.log("Multiplicação:", multiplicacao); // Saída: Multiplicação: 50
+
+let divisao = num1 / num2;
+console.log("Divisão:", divisao); // Saída: Divisão: 2
+
+let resto = num1 % 3; // 10 dividido por 3 é 3 com resto 1
+console.log("Resto da divisão (10 % 3):", resto); // Saída: Resto da divisão (10 % 3): 1
+
+let potencia = 2 ** 4; // 2 elevado à potência de 4 (2*2*2*2)
+console.log("Potência (2 ** 4):", potencia); // Saída: Potência (2 ** 4): 16
+
+
+// Exemplo 2: Incremento e Decremento
+let contador = 0;
+console.log("Contador inicial:", contador); // Saída: Contador inicial: 0
+
+contador++; // contador = contador + 1
+console.log("Contador depois do ++:", contador); // Saída: Contador depois do ++: 1
+
+contador--; // contador = contador - 1
+console.log("Contador depois do --:", contador); // Saída: Contador depois do --: 0
+
+let a = 5;
+let b = ++a; // 'a' é incrementado para 6, então 'b' recebe 6
+console.log("a:", a, "b:", b); // Saída: a: 6 b: 6
+
+let x = 5;
+let y = x++; // 'y' recebe o valor atual de 'x' (5), então 'x' é incrementado para 6
+console.log("x:", x, "y:", y); // Saída: x: 6 y: 5
+// Exemplo 3: Precedência
+let resultado1 = 5 + 3 * 2;
+console.log("Resultado 1 (5 + 3 * 2):", resultado1); // Saída: Resultado 1 (5 + 3 * 2): 11 (3*2 = 6, depois 5+6)
+
+let resultado2 = (5 + 3) * 2;
+console.log("Resultado 2 ((5 + 3) * 2):", resultado2); // Saída: Resultado 2 ((5 + 3) * 2): 16 (5+3 = 8, depois 8*2)
+// Exemplo 9: Operadores de Atribuição Compostos
+let saldo = 100;
+console.log("Saldo inicial:", saldo); // Saída: Saldo inicial: 100
+
+saldo += 50; // saldo = saldo + 50
+console.log("Saldo após depósito de 50:", saldo); // Saída: Saldo após depósito de 50: 150
+
+saldo -= 20; // saldo = saldo - 20
+console.log("Saldo após saque de 20:", saldo); // Saída: Saldo após saque de 20: 130
+
+let precoProduto = 25;
+precoProduto *= 2; // precoProduto = precoProduto * 2
+console.log("Preço do produto dobrado:", precoProduto); // Saída: Preço do produto dobrado: 50
+
+let pontos = 100;
+pontos /= 10; // pontos = pontos / 10
+console.log("Pontos divididos por 10:", pontos); // Saída: Pontos divididos por 10: 10
+
+let contadorModulo = 7;
+contadorModulo %= 3; // contadorModulo = contadorModulo % 3
+console.log("Resto de 7 por 3:", contadorModulo); // Saída: Resto de 7 por 3: 1
+
+console.log("!true:", !true);   // Saída: false
+console.log("!false:", !false); // Saída: true
+
+// Também pode ser usado para converter valores para booleanos e invertê-los
+console.log("!0:", !0);         // Saída: true (0 é considerado false, !0 é true)
+console.log("!'Olá':", !'Olá'); // Saída: false ('Olá' é considerado true, !'Olá' é false)
+
+console.log(("banana" === "Banana")); // Saída: true (as strings são diferentes, então a comparação é false, e !false é true)
+
+
+let p1 = 8;
+let p2 = "8";
+let p3 = 10;
+let p4 = false;
+
+let condicao1 = (p1 === p2); // (8 === "8") -> false (tipos diferentes)
+let condicao2 = (p1 != p3) && !p4; // (8 != 10) -> true. !false -> true. Então, (true && true) -> true
+
+let resultadoFinal = condicao1 || condicao2; // false || true -> true
+console.log("Resultado final da expressão:", resultadoFinal); // Saída: Resultado final da expressão: true
+</script>
+</html>
