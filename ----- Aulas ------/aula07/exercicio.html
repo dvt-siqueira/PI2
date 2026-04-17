@@ -1,0 +1,70 @@
+<html>
+    <head>
+    <title>Exercícios de Lógica de Programação</title>
+    </head>
+    <body>
+    <h1>Exercícios de Lógica de Programação</h1>
+    </body>
+    <script>
+        let nota1=4;
+        let nota2=6;
+        let frequencia=80;
+        let media=(nota1+nota2)/2;
+        if (media>=7 && frequencia>=75){
+            console.log(`Média ${media}: Aprovado!`);
+        } else if (media>=5 && frequencia>=75){
+            console.log(`Média ${media}: Recuperação.`);
+        } else {
+            console.log("Reprovado.");
+        }
+    
+let codigoPedido=7;
+switch (codigoPedido) {
+    case 1: (console.log("Hambúrguer - R$ 15,00"));
+    break;
+    case 2: (console.log("Batata Frita - R$ 10,00"));
+    break;          
+    case 3: (console.log("Refrigerante - R$ 5,00"));
+    break;
+    case 4: (console.log("Combo - R$ 25,00"));  
+    break;
+    default: (console.log("Código inválido"));
+}
+
+
+for (let i =1; i<=30;i++){
+    if (i%3===0 && i%5===0){
+        console.log("FizzBuzz");
+    } else if (i%3===0){
+        console.log("Fizz");
+    } else if (i%5===0){
+        console.log("Buzz");
+    } else {
+        console.log(i);
+    }
+}
+
+let tamanho=4;
+for (let i = 0; i < tamanho; i++) {
+    let linha = "";
+    for (let j = 0; j < tamanho; j++) {
+        linha += "*";
+    }
+    console.log(linha + i);
+}
+
+const numeroSecreto = 3;
+let tentativas = 0;
+let palpite;
+while (tentativas <=3){
+    palpite = parseInt(prompt("Digite um número entre 1 e 10:"));
+    if (palpite === numeroSecreto) {
+        console.log("Parabéns! Você acertou o número secreto!");
+        break;
+    } else {
+        console.log("Número incorreto. Tente novamente.");
+        tentativas++;
+    }
+}
+    </script>
+</html>
