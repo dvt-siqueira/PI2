@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste JS</title>
+</head>
+<body>
+
+    <input type="text" id="texto" placeholder="Digite um texto">
+    <button onclick="gerarTitulo()">Gerar H1</button>
+
+    <div id="resultado"></div>
+
+    <script>
+        function gerarTitulo() {
+            const valor = document.getElementById("texto").value;
+
+            document.getElementById("resultado").innerHTML = `
+                <h1>${valor}</h1>
+            `;
+        }
+    </script>
+
+</body>
+</html>
