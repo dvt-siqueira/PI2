@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <title>Exercícios em Aula - Aula 12</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-cadastro">
+            <h2> 📦 Formulário de Cadastro</h2>
+            <input type="text" id="nome_produto" placeholder="Nome do Produto">
+            <select id="categoria-produto">
+                <option value="">Selecione uma categoria</option>
+                <option value="eletronicos">Eletrônicos</option>
+                <option value="vestuario">Vestuário</option>
+                <option value="alimentos">Alimentos</option>
+            </select>
+            <button id="btn-limpar">Limpar Formulário</button>
+        </div>
+        <!-- PAUSA 1: Explique que este DIV abaixo será controlado pelo JS -->
+        <div class="card-previa" id="card-previa">
+            <h3 id="previa-nome">Nome do Produto</h3>
+            <p>Categoria: <span id="previa-categoria">Nenhuma</span></p>
+            <div id="status-estoque">Aguardando...</div>
+
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
