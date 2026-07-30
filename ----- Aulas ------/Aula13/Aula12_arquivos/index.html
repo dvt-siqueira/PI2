@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lojavirtual - Aula 12</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .container { display: flex; gap: 40px; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        
+        .form-cadastro { display: flex; flex-direction: column; width: 300px; }
+        h2 { color: #333; margin-bottom: 20px; }
+        input, select, button { padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; }
+        
+        button { background-color: #007bff; color: white; border: none; cursor: pointer; transition: 0.3s; }
+        button:hover { background-color: #0056b3; }
+        #btn-limpar { background-color: #6c757d; }
+
+        /* Estilo do Card de Prévia */
+        .card-previa { width: 250px; border: 2px dashed #007bff; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #fafafa; }
+        .card-previa h3 { margin: 0; color: #007bff; }
+        .card-previa p { color: #666; font-size: 14px; }
+        
+        /* Classe de destaque que será usada no evento Change */
+        .destaque { border-style: solid; background-color: #e7f3ff; transform: scale(1.05); transition: 0.3s; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Lado Esquerdo: Entrada de Dados -->
+        <div class="form-cadastro">
+            <h2>📦 Cadastro</h2>
+            <input type="text" id="nome-produto" placeholder="Nome do Produto">
+            
+            <select id="categoria-produto">
+                <option value="Sem Categoria">Selecione uma Categoria</option>
+                <option value="Eletrônicos">Eletrônicos</option>
+                <option value="Vestuário">Vestuário</option>
+                <option value="Alimentos">Alimentos</option>
+            </select>
+
+            <button id="btn-limpar">Limpar Formulário</button>
+            <input type="text" id="item-nome" placeholder="Nome do item">
+<button id="btn-add">Adicionar à Lista</button>
+
+            
+        </div>
+
+        <!-- Lado Direito: Saída de Dados (Prévia) -->
+        <div class="card-previa" id="card-previa">
+            <h3 id="previa-nome">Nome do Produto</h3>
+            <p>Categoria: <span id="previa-categoria">Nenhuma</span></p>
+            <div id="status-estoque">Aguardando...</div>
+            <ul id="lista-visual"></ul>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

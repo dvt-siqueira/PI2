@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Array</title>
+</head>
+
+<body>
+    <h1>Array</h1>
+    <p>Exemplo de array em JavaScript</p>
+</body>
+<script>
+    // Criando um array (Referência MDN)
+    let produtos = ["Monitor", "Teclado", "Mouse"];
+
+    console.log(produtos[1]);      // Saída: Monitor
+    console.log(produtos.length);   // Saída: 3
+    
+
+   let lista = ["HTML", "CSS"];
+
+lista.push("JS");        // ["HTML", "CSS", "JS"]
+lista.unshift("Git");    // ["Git", "HTML", "CSS", "JS"]
+lista.splice(1, 1);      // Remove "HTML" (índice 1) -> ["Git", "CSS", "JS"]
+ console.log(lista); // Saída: ["Git", "CSS", "JS"]
+
+
+
+ let frutas = ["Maçã", "Banana", "Manga"];
+
+// Buscando a posição
+let pos = frutas.indexOf("Banana"); // pos = 1
+console.log(pos); // Saída: 1
+// Percorrendo a lista (Iteração)
+frutas.forEach(function(item, indice) {
+    console.log(`${indice}: ${item}`);
+});
+const numeros = [1,2,3,4,5];
+
+// Exercício 7 – for tradicional
+for (let i = 0; i < numeros.length; i++) {
+    console.log("For:", numeros[i]);
+}
+
+// Exercício 8 – for...of
+for (const num of numeros) {
+    console.log("For...of:", num);
+}
+
+const valores = [1, 2, 3, 4, 5];
+const somaTotal = valores.reduce((acumulador, atual) => acumulador + atual, 0);
+console.log("Soma Total:", somaTotal);
+const nomes = ["Carlos", "Ana", "Pedro", "Bruno"];
+nomes.sort();
+console.log("Nomes ordenados:", nomes);
+
+// Exercício 17 – reverse()
+nomes.reverse();
+console.log("Nomes invertidos:", nomes);
+
+// Exercício 14 – filter()
+const misturaNumeros =[1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
+const pares = misturaNumeros.filter(n => n % 2 === 0);
+console.log("Apenas pares:", pares);
+</script>
+
+</html>
