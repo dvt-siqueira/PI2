@@ -1,0 +1,21 @@
+{
+    "squadName": "Super Hero Squad",
+    "members": [
+        {
+            "name": "Molecule Man",
+            "age": 29,
+            "powers": [
+                "Radiation resistance",
+                "Turning tiny",
+                "Radiation blast"
+            ]},
+            {
+            "name": "Spider Man",
+            "age": 20,
+            "powers": [
+                "Web-slinging",
+                "Wall crawling",
+                "Spider sense"
+            ]}
+    ]
+}

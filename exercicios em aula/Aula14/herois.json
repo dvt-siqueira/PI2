@@ -1,0 +1,15 @@
+{
+  "squadName": "Super heróis",
+  "members": [
+    {
+      "name": "Molecule Man",
+      "age": 29,
+      "powers": ["Radiação", "Teletransporte"]
+    },
+    {
+      "name": "Madame Uppercut",
+      "age": 39,
+      "powers": ["Super soco", "Reflexos"]
+    }
+  ]
+}
