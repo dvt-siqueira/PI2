@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <!-- Meta Viewport Obrigatória para Responsividade -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Quiz — Bootstrap 5</title>
+    
+    <!-- Bootstrap 5 CSS via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<header class="">
+    <div class="">
+        <div class="">
+            <!-- Em telas pequenas (celulares), ocupa 12 colunas. Em telas médias (md+), ocupa 8 colunas -->
+            <div class="">
+                <h1 class="">🎮 Pokémon Quiz</h1>
+                <p class="">Teste seus conhecimentos e descubra se você é um verdadeiro Mestre Pokémon!</p>
+            </div>
+            <!-- Painel Informativo Lateral no Desktop -->
+            <div class="">
+                <span class="">
+                    ⚡ 4 Perguntas | 🎯 100 Pontos Max
+                </span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container my-5">
+    <div class="p-4 bg-white rounded shadow-sm border border-primary-subtle">
+        <h2 class="h4 text-primary font-weight-bold mb-3">📜 Instruções do Quiz:</h2>
+        <p class="mb-0 text-muted">Selecione uma opção para cada uma das 4 perguntas abaixo. Ao finalizar, clique no botão <strong>"Enviar Respostas"</strong> para calcular a sua pontuação em tempo real!</p>
+    </div>
+</div>
+<!-- Seção de Resultado (Oculta com .d-none) -->
+<section class="result-section d-none bg-white py-4 shadow-sm border-bottom mb-4">
+    <div class="container text-center">
+        <h2 class="h3 mb-3">Seu Desempenho:</h2>
+        
+        <!-- Placar Animado -->
+        <p class="display-3 fw-bold text-primary my-2">
+            <span class="score-display">0%</span>
+        </p>
+
+        <!-- Caixa de Alerta do Bootstrap para Feedback Personalizado -->
+        <div class="alert feedback-alert d-none col-md-8 mx-auto fw-bold fs-5" role="alert">
+            <!-- Texto inserido dinamicamente via JS -->
+        </div>
+    </div>
+</section>
+<main class="container my-5">
+    <form class="quiz-form col-lg-8 mx-auto">
+
+        <!-- Pergunta 1 -->
+        <div class="card mb-4 border-0 shadow-sm">
+            <div class="card-header bg-white border-bottom fw-bold text-primary">
+                ❓ Pergunta 1 de 4
+            </div>
+            <div class="card-body p-4">
+                <p class="card-text lead fw-normal mb-3">Qual é o primeiro Pokémon na Pokédex Nacional (#0001)?</p>
+
+                <div class="form-check p-3 mb-2 rounded border bg-light">
+                    <input class="form-check-input ms-1" type="radio" name="q1" id="q1a" value="A" checked>
+                    <label class="form-check-label ms-2 w-100 cursor-pointer" for="q1a">A) Bulbasaur</label>
+                </div>
+                <div class="form-check p-3 mb-2 rounded border bg-light">
+                    <input class="form-check-input ms-1" type="radio" name="q1" id="q1b" value="B">
+                    <label class="form-check-label ms-2 w-100 cursor-pointer" for="q1b">B) Charmander</label>
+                </div>
+                <div class="form-check p-3 mb-2 rounded border bg-light">
+                    <input class="form-check-input ms-1" type="radio" name="q1" id="q1c" value="C">
+                    <label class="form-check-label ms-2 w-100 cursor-pointer" for="q1c">C) Pikachu</label>
+                </div>
+                <div class="form-check p-3 mb-2 rounded border bg-light">
+                    <input class="form-check-input ms-1" type="radio" name="q1" id="q1d" value="D">
+                    <label class="form-check-label ms-2 w-100 cursor-pointer" for="q1d">D) Mewtwo</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pergunta 2 -->
+        <div class="card mb-4 border-0 shadow-sm">
+            <div class="card-header bg-white border-bottom fw-bold text-primary">
+                ❓ Pergunta 2 de 4
+            </div>
+            <div class="card-body p-4">
+                <p class="card-text lead fw-normal mb-3">Qual tipo de Pokémon é super efetivo contra o tipo Água?</p>
+                <div class="form-check p-3 mb-2 rounded border bg-light">
+                    <input class="form-check-input ms-1" type="radio" name="q2" id="q2a" value="A" checked>
+                    <label class="form-check-label ms-2 w-100 cursor-pointer" for="q2a">A) Fogo</label>
+                </div>
+                <div class="form-check p-3 mb-2 rounded border bg-light">
+                    <input class="form-check-input ms-1" type="radio" name="q2" id="q2b" value="B">
+                    <label class="form-check-label ms-2 w-100 cursor-pointer" for="q2b">B) Planta</label>
+                </div>
+                <div class="form-check p-3 mb-2 rounded border bg-light">
+                    <input class="form-check-input ms-1" type="radio" name="q2" id="q2c" value="C">
+                    <label class="form-check-label ms-2 w-100 cursor-pointer" for="q2c">C) Pedra</label>
+                </div>
+                <div class="form-check p-3 mb-2 rounded border bg-light">
+                    <input class="form-check-input ms-1" type="radio" name="q2" id="q2d" value="D">
+                    <label class="form-check-label ms-2 w-100 cursor-pointer" for="q2d">D) Normal</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pergunta 3 -->
+        <div class="card mb-4 border-0 shadow-sm">
+            <div class="card-header bg-white border-bottom fw-bold text-primary">
+                ❓ Pergunta 3 de 4
+            </div>
+            <div class="card-body p-4">
+                <p class="card-text lead fw-normal mb-3">Qual é a evolução do Eevee ao usar uma Thunder Stone?</p>
+                <div class="form-check p-3 mb-2 rounded border bg-light">
+                    <input class="form-check-input ms-1" type="radio" name="q3" id="q3a" value="A" checked>
+                    <label class="form-check-label ms-2 w-100 cursor-pointer" for="q3a">A) Vaporeon</label>
+                </div>
+                <div class="form-check p-3 mb-2 rounded border bg-light">
+                    <input class="form-check-input ms-1" type="radio" name="q3" id="q3b" value="B">
+                    <label class="form-check-label ms-2 w-100 cursor-pointer" for="q3b">B) Jolteon</label>
+                </div>
+                <div class="form-check p-3 mb-2 rounded border bg-light">
+                    <input class="form-check-input ms-1" type="radio" name="q3" id="q3c" value="C">
+                    <label class="form-check-label ms-2 w-100 cursor-pointer" for="q3c">C) Flareon</label>
+                </div>
+                <div class="form-check p-3 mb-2 rounded border bg-light">
+                    <input class="form-check-input ms-1" type="radio" name="q3" id="q3d" value="D">
+                    <label class="form-check-label ms-2 w-100 cursor-pointer" for="q3d">D) Espeon</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pergunta 4 -->
+        <div class="card mb-4 border-0 shadow-sm">
+            <div class="card-header bg-white border-bottom fw-bold text-primary">
+                ❓ Pergunta 4 de 4
+            </div>
+            <div class="card-body p-4">
+                <p class="card-text lead fw-normal mb-3">Qual destes Pokémons é considerado lendário?</p>
+                <div class="form-check p-3 mb-2 rounded border bg-light">
+                    <input class="form-check-input ms-1" type="radio" name="q4" id="q4a" value="A" checked>
+                    <label class="form-check-label ms-2 w-100 cursor-pointer" for="q4a">A) Mewtwo</label>
+                </div>
+                <div class="form-check p-3 mb-2 rounded border bg-light">
+                    <input class="form-check-input ms-1" type="radio" name="q4" id="q4b" value="B">
+                    <label class="form-check-label ms-2 w-100 cursor-pointer" for="q4b">B) Pidgeot</label>
+                </div>
+                <div class="form-check p-3 mb-2 rounded border bg-light">
+                    <input class="form-check-input ms-1" type="radio" name="q4" id="q4c" value="C">
+                    <label class="form-check-label ms-2 w-100 cursor-pointer" for="q4c">C) Gyarados</label>
+                </div>
+                <div class="form-check p-3 mb-2 rounded border bg-light">
+                    <input class="form-check-input ms-1" type="radio" name="q4" id="q4d" value="D">
+                    <label class="form-check-label ms-2 w-100 cursor-pointer" for="q4d">D) Lucario</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botão de Envio -->
+        <div class="text-center my-4">
+            <button type="submit" class="btn btn-primary btn-lg px-5 shadow">
+                🚀 Enviar Respostas
+            </button>
+        </div>
+
+    </form>
+</main>
+
+
+
+
+    <script src="app.js"></script>
+</body>
+</html>

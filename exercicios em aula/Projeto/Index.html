@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Chatbot com IA - Aula de JS</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .chat-container {
+            width: 100%;
+            max-width: 450px;
+            height: 80vh;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background-color: #0a84ff;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .message {
+            max-width: 75%;
+            padding: 10px 14px;
+            border-radius: 15px;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            word-wrap: break-word;
+        }
+
+        .user-message {
+            background-color: #0a84ff;
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 2px;
+        }
+
+        .bot-message {
+            background-color: #e9e9eb;
+            color: #333;
+            align-self: flex-start;
+            border-bottom-left-radius: 2px;
+        }
+
+        .loading-message {
+            background-color: #e9e9eb;
+            color: #777;
+            align-self: flex-start;
+            font-style: italic;
+        }
+
+        .chat-input-area {
+            display: flex;
+            padding: 15px;
+            background-color: #ffffff;
+            border-top: 1px solid #eee;
+            gap: 10px;
+        }
+
+        #user-input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            outline: none;
+            font-size: 0.95rem;
+            transition: border 0.2s;
+        }
+
+        #user-input:focus {
+            border-color: #0a84ff;
+        }
+
+        #send-btn {
+            background-color: #0a84ff;
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        #send-btn:hover {
+            background-color: #0066cc;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="chat-container">
+        <div class="chat-header">
+            🤖 Assistente Personalizado
+        </div>
+        
+        <div class="chat-messages" id="chat-messages">
+            <div class="message bot-message">Olá! Como posso ajudar você hoje?</div>
+        </div>
+
+        <div class="chat-input-area">
+            <input type="text" id="user-input" placeholder="Digite sua mensagem..." autocomplete="off">
+            <button id="send-btn">Enviar</button>
+        </div>
+    </div>
+
+    <script>
+        // CONFIGURAÇÕES DA API (Substituir pela chave real do Google AI Studio)
+        const API_KEY = "SUA_CHAVE_API_AQUI"; 
+        const URL_API = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+
+        // DEFINIÇÃO DA PERSONALIDADE (Onde o aluno usa a criatividade)
+        const INSTRUCAO_SISTEMA = "Você é um mestre de RPG medieval experiente e misterioso. Responda de forma interpretativa, curta e chame o usuário de 'viajante'.";
+
+        // MAPEAMENTO DOS ELEMENTOS DO DOM
+        const chatMessages = document.getElementById('chat-messages');
+        const userInput = document.getElementById('user-input');
+        const sendBtn = document.getElementById('send-btn');
+
+        // FUNÇÃO PARA ADICIONAR BALÕES NA TELA
+        function adicionarMensagem(texto, tipo) {
+            const div = document.createElement('div');
+            div.classList.add('message', tipo);
+            div.innerText = texto;
+            chatMessages.appendChild(div);
+            
+            // Scroll automático para a última mensagem
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            return div; // Retorna o elemento caso precise ser removido/alterado depois
+        }
+
+        // FUNÇÃO QUE FAZ A REQUISIÇÃO PARA A API DO GEMINI
+        async function enviarParaGemini(promptUsuario) {
+            // Combinamos a instrução do sistema com a pergunta para moldar o comportamento no modelo Flash
+            const promptCompleto = `Instrução do Sistema: ${INSTRUCAO_SISTEMA}\n\nUsuário: ${promptUsuario}`;
+
+            const resposta = await fetch(URL_API, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    contents: [{
+                        parts: [{ text: promptCompleto }]
+                    }]
+                })
+            });
+
+            if (!resposta.ok) {
+                throw new Error("Erro na requisição da API");
+            }
+
+            const dados = await resposta.json();
+            // Navegação no objeto JSON de retorno do Google
+            return dados.candidates[0].content.parts[0].text;
+        }
+
+        // LÓGICA PRINCIPAL AO ENVIAR UMA MENSAGEM
+        async function lidarComEnvio() {
+            const textoBotao = userInput.value.trim();
+            
+            // Validação simples para não enviar texto vazio
+            if (textoBotao === "") return;
+
+            // 1. Mostra a mensagem do usuário na tela
+            adicionarMensagem(textoBotao, 'user-message');
+            userInput.value = ""; // Limpa o campo de entrada
+
+            // 2. Cria o efeito visual de "Digitando..."
+            const balaoCarregando = adicionarMensagem("Digitando...", 'loading-message');
+
+            try {
+                // 3. Chama a API de forma assíncrona
+                const respostaIA = await enviarParaGemini(textoBotao);
+                
+                // 4. Remove o balão de carregamento e mostra a resposta real
+                balaoCarregando.remove();
+                adicionarMensagem(respostaIA, 'bot-message');
+
+            } catch (erro) {
+                console.error(erro);
+                balaoCarregando.remove();
+                adicionarMensagem("Desculpe, viajante. Minha mente se esvaziou (Erro ao conectar).", 'bot-message');
+            }
+        }
+
+        // EVENTOS DE DISPARO (Clique no Botão ou Tecla Enter)
+        sendBtn.addEventListener('click', lidarComEnvio);
+        
+        userInput.addEventListener('keypress', function(evento) {
+            if (evento.key === 'Enter') {
+                lidarComEnvio();
+            }
+        });
+    </script>
+</body>
+</html>
