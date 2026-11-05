@@ -31,14 +31,26 @@ async function buscarEndereco(cep) {
     </div> Buscando endereço...`;
 
   try {
-    
-    
-
-   
-
- 
-      
+    const resposta = await fetch (`https://viacep.com.br/ws/${cepLimpo}/json/`);
+    console.log(resposta);
+    if(!resposta.ok){
+        throw new Error(`Erro de servidor. Status: ${resposta.status}`);
     }
+   const dados = await resposta.json();
+   console.log(dados);
+    if(dados.erro){
+        mensagemDiv.textContent="CEP não encontrado";
+        limparCampos();
+    }
+logradouroInput.value = dados.logradouro || "";
+localidadeInput.value = dados.localidade ||"";
+mensagemDiv.textContent="";
+const numeroInput = document.querySelector("#numero");
+    if(numeroInput){
+        numeroInput.focus();
+    }
+      
+    
   } catch (erro) {
     // Captura falhas de conexão de rede ou exceções disparadas pelo throw Error
     console.error("Falha na consulta:", erro);
